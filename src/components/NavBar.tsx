@@ -1,4 +1,9 @@
 import { useState } from "react";
+import { RiHome2Line } from "react-icons/ri";
+import { BsDatabase } from "react-icons/bs";
+import { BsGear } from "react-icons/bs";
+import { FaRegCircleCheck } from "react-icons/fa6";
+import { IoCallOutline } from "react-icons/io5";
 
 interface Props {
   currentTask: (task: string) => void;
@@ -8,23 +13,23 @@ const NavBar = ({ currentTask }: Props) => {
   const tasks = [
     {
       name: "Home",
-      url: "src/assets/home.png",
+      icon: <RiHome2Line size={24} fill="#fff" />,
     },
     {
       name: "Models",
-      url: "src/assets/dataset.png",
+      icon: <BsDatabase size={24} fill="#fff" />,
     },
     {
       name: "How It Works",
-      url: "src/assets/how_it_works.png",
+      icon: <BsGear size={24} fill="#fff" />,
     },
     {
-      name: "Task 4",
-      url: "src/assets/dataset.png",
+      name: "Check Disease",
+      icon: <FaRegCircleCheck size={24} fill="#fff" />,
     },
     {
       name: "Contact Us",
-      url: "src/assets/conatact.png",
+      icon: <IoCallOutline size={24} stroke="#fff" />,
     },
   ];
   const [task1, setTask] = useState("Home");
@@ -61,12 +66,8 @@ const NavBar = ({ currentTask }: Props) => {
                 setTask("Contact Us");
               }}
             >
-              <span className="bg-[#1d4ed8] rounded-3xl">
-                <img
-                  src="src/assets/conatact.png"
-                  className="w-[32px] p-[5px]"
-                  alt="home"
-                />
+              <span className="bg-[#1d4ed8] rounded-3xl p-1">
+                <IoCallOutline size={24} stroke="#fff" />
               </span>
               Contact Us
             </div>
@@ -113,7 +114,7 @@ const NavBar = ({ currentTask }: Props) => {
               hamberger ? "" : "hidden"
             }`}
           >
-            <ul className="flex lg:flex-row font-medium gap-4 flex-col items-end bg-white p-3 my-1 rounded-xl w-fit max-lg:border">
+            <ul className="flex lg:flex-row font-medium gap-4 flex-col items-end bg-white p-3 my-1 max-lg:my-4 rounded-xl w-fit max-lg:border">
               {tasks.map((task, index) => (
                 <li
                   key={task.name}
@@ -136,12 +137,8 @@ const NavBar = ({ currentTask }: Props) => {
                       setHamberger(!hamberger);
                     }}
                   >
-                    <span className="bg-[#1d4ed8] rounded-3xl">
-                      <img
-                        src={task.url}
-                        className="w-[32px] p-[5px]"
-                        alt="home"
-                      />
+                    <span className="bg-[#1d4ed8] rounded-3xl p-1">
+                      {task.icon}
                     </span>
                     {task.name}
                   </div>

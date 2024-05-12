@@ -1,12 +1,21 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { CircularProgress } from "@mui/material";
+import { Bar } from "react-chartjs-2";
+import { Chart as ChartJS, registerables } from "chart.js";
+ChartJS.register(...registerables);
 
 interface Result {
   predicted_class_custom: string;
   accuracy_custom: number;
   predicted_class_lenet: string;
   accuracy_lenet: number;
+  predicted_class_resNet: string;
+  accuracy_resNet: number;
+  predicted_class_vgg: string;
+  accuracy_vgg: number;
+  predicted_class_mobileNet: string;
+  accuracy_mobileNet: number;
 }
 
 const Upload = () => {
@@ -24,7 +33,6 @@ const Upload = () => {
     formData.append("file", imageFile);
 
     setLoading(true);
-
     axios
       .post<Result>("http://127.0.0.1:5000/data", formData)
       .then((res) => {
@@ -176,6 +184,54 @@ const Upload = () => {
         <p>
           {result?.predicted_class_lenet} - {result?.accuracy_lenet}
         </p>
+        <p>
+          {result?.predicted_class_resNet} - {result?.accuracy_resNet}
+        </p>
+        <p>
+          {result?.predicted_class_vgg} - {result?.accuracy_vgg}
+        </p>
+        <p>
+          {result?.predicted_class_mobileNet} - {result?.accuracy_mobileNet}
+        </p>
+        <div>
+          <Bar
+            width="500px"
+            height="500px"
+            data={{
+              labels: ["Custom", "LeNet", "ResNet", "VGG", "MobileNet"],
+              datasets: [
+                {
+                  label: "Accuracy",
+                  data: [
+                    result?.accuracy_custom,
+                    result?.accuracy_lenet,
+                    result?.accuracy_resNet,
+                    result?.accuracy_vgg,
+                    result?.accuracy_mobileNet,
+                  ],
+                  backgroundColor: [
+                    "rgba(255, 99, 132, 0.2)",
+                    "rgba(54, 162, 235, 0.2)",
+                    "rgba(255, 206, 86, 0.2)",
+                    "rgba(75, 192, 192, 0.2)",
+                    "rgba(153, 102, 255, 0.2)",
+                  ],
+                  borderColor: [
+                    "rgba(255, 99, 132, 1)",
+                    "rgba(54, 162, 235, 1)",
+                    "rgba(255, 206, 86, 1)",
+                    "rgba(75, 192, 192, 1)",
+                    "rgba(153, 102, 255, 1)",
+                  ],
+                  borderWidth: 1,
+                },
+              ],
+            }}
+            options={{
+              responsive: false,
+            }}
+          />
+        </div>
       </div>
     </>
   );
