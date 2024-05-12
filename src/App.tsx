@@ -3,6 +3,7 @@ import "./App.css";
 import NavBar from "./components/NavBar";
 import Upload from "./components/Upload";
 import Contact from "./components/Contact";
+import Home from "./components/Home";
 
 function App() {
   const [task, setTask] = useState("Home");
@@ -10,6 +11,7 @@ function App() {
   return (
     <>
       <NavBar currentTask={(selectedTask) => setTask(selectedTask)} />
+      {task === "Home" ? <Home /> : null}
       {task === "Check Disease" ? <Upload /> : null}
       {task === "Contact Us" ? <Contact /> : null}
 

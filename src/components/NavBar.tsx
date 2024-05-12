@@ -4,6 +4,7 @@ import { BsDatabase } from "react-icons/bs";
 import { BsGear } from "react-icons/bs";
 import { FaRegCircleCheck } from "react-icons/fa6";
 import { IoCallOutline } from "react-icons/io5";
+import Medwise from "../assets/MEDWISE.png";
 
 interface Props {
   currentTask: (task: string) => void;
@@ -43,11 +44,7 @@ const NavBar = ({ currentTask }: Props) => {
       <nav className="px-4 lg:bg-white max-lg:p-3 shadow">
         <div className="relative flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
           <div className="flex items-center">
-            <img
-              src="src\assets\MEDWISE.png"
-              className="medwise_logo mr-1 h-16"
-              alt="Logo"
-            />
+            <img src={Medwise} className="medwise_logo mr-1 h-16" alt="Logo" />
             <span className="self-center text-xl font-semibold whitespace-nowrap text-black">
               Med
               <span className="text-[#1d4ed8]">Wise</span>
