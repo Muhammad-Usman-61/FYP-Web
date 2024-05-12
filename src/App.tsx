@@ -1,58 +1,26 @@
 import { useState } from "react";
-import axios from "axios";
 import "./App.css";
+import NavBar from "./components/NavBar";
+import Upload from "./components/Upload";
+import Contact from "./components/Contact";
 
 function App() {
-  const [imageFile, setImageFile] = useState(null);
-  const [name, setName] = useState("");
-  // const [name, setnewName] = useState("");
+  const [task, setTask] = useState("Home");
 
-  const handleFileChange = (event: any) => {
-    const file = event.target.files[0];
-    setImageFile(file);
-  };
-
-  const handleChange = (event: any) => {
-    setName(event.target.value);
-  };
-  const handleSubmit = () => {
-    if (!imageFile || !name) {
-      alert("Please select an image and enter a name.");
-      return;
-    }
-
-    const formData = new FormData();
-    formData.append("file", imageFile);
-    formData.append("nm", name);
-
-    axios
-      .post("http://127.0.0.1:5000/data", formData)
-      .then((res) => {
-        console.log(res.data);
-      })
-      .catch((err) => {
-        console.error(err);
-      });
-  };
-
-  // const handleSubmit = async (e: any) => {
-  //   e.preventDefault();
-  //   axios
-  //     .post("http://127.0.0.1:5000/data", { nm })
-  //     .then((res) => {
-  //       console.log(res.data);
-  //       setnewName(res.data.name);
-  //     })
-  //     .catch((err) => {
-  //       console.error(err);
-  //     });
-  // };
   return (
-    <div>
-      <input type="file" accept="image/*" onChange={handleFileChange} />
-      <input type="text" value={name} onChange={handleChange} />
-      <button onClick={handleSubmit}>Submit</button>
-    </div>
+    <>
+      <NavBar currentTask={(selectedTask) => setTask(selectedTask)} />
+      {task === "Home" ? <Upload /> : null}
+      {task === "Contact Us" ? <Contact /> : null}
+
+      <div className="absolute bottom-0 left-0 top-0 z-[-1] opacity-20 h-screen w-screen">
+        <img
+          className="object-cover h-full w-full"
+          src="src\assets\20013909_8483352630167.svg"
+          alt="image"
+        />
+      </div>
+    </>
   );
 }
 
