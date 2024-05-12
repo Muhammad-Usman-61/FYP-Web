@@ -2,6 +2,12 @@ import { IoIosSend } from "react-icons/io";
 import { IoLogoGithub } from "react-icons/io";
 import { IoMdMail } from "react-icons/io";
 import { FaLinkedin } from "react-icons/fa6";
+import contact_us_img_1 from "../assets/contact_us_img_1.jpg";
+import pic1 from "../assets/pic1.jpg";
+import pic2 from "../assets/pic2.jpeg";
+import pic3 from "../assets/pic3.jpeg";
+import contact_us_img from "../assets/contact_us_img.jpg";
+import community from "../assets/community.jpg";
 
 const Contact = () => {
   return (
@@ -9,7 +15,7 @@ const Contact = () => {
       <div className="flex gap-8 mx-16 my-8 flex-col max-lg:mx-4">
         <div className="rounded-2xl shadow h-48 border border-gray-200 overflow-hidden">
           <img
-            src="src\assets\contact_us_img_1.jpg"
+            src={contact_us_img_1}
             alt="image"
             className="object-cover h-full w-full"
           />
@@ -95,7 +101,7 @@ const Contact = () => {
                 <div className="text-center text-gray-500 dark:text-gray-400">
                   <img
                     className="mx-auto w-24 h-24 rounded-full"
-                    src="src/assets/pic1.jpg"
+                    src={pic1}
                     alt="Muhammad Usman"
                   />
                   <h3 className="mb-1 text-md font-bold tracking-tight text-gray-900">
@@ -134,7 +140,7 @@ const Contact = () => {
                 <div className="text-center text-gray-500">
                   <img
                     className="mx-auto w-24 h-24 rounded-full"
-                    src="src/assets/pic3.jpeg"
+                    src={pic3}
                     alt="Abid Khan"
                   />
                   <h3 className="mb-1 text-md font-bold tracking-tight text-gray-900">
@@ -173,7 +179,7 @@ const Contact = () => {
                 <div className="text-center text-gray-500">
                   <img
                     className="mx-auto w-24 h-24 rounded-full"
-                    src="src/assets/pic2.jpeg"
+                    src={pic2}
                     alt="Mutee Abdullah"
                   />
                   <h3 className="mb-1 text-md font-bold tracking-tight text-gray-900">
@@ -216,7 +222,7 @@ const Contact = () => {
 
             <div className="flex gap-6 justify-between max-sm:flex-col">
               <div className="shadow rounded-2xl border border-gray-200 overflow-hidden">
-                <img src="src\assets\contact_us_img.jpg" alt="image" />
+                <img src={contact_us_img} alt="image" />
               </div>
               <div className="shadow rounded-2xl relative border border-gray-200 overflow-hidden">
                 <div className="absolute top-1/4 left-4 w-48 text-white font-medium text-xl">
@@ -224,7 +230,7 @@ const Contact = () => {
                   <p>Detecting Alzheimer's Together</p>
                 </div>
 
-                <img src="src\assets\community.jpg" alt="image" />
+                <img src={community} alt="image" />
               </div>
             </div>
           </div>
