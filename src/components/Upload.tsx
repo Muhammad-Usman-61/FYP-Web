@@ -215,7 +215,13 @@ const Upload = () => {
             width="450px"
             height="350px"
             data={{
-              labels: ["Our Model", "LeNet", "ResNet", "VGG", "MobileNet"],
+              labels: [
+                "Our Model",
+                "LeNet",
+                "ResNet50",
+                "VGG16",
+                "MobileNetV2",
+              ],
               datasets: [
                 {
                   label: "Predicted Disease",
@@ -294,7 +300,13 @@ const Upload = () => {
             width="350px"
             height="350px"
             data={{
-              labels: ["Our Model", "LeNet", "ResNet", "VGG", "MobileNet"],
+              labels: [
+                "Our Model",
+                "LeNet",
+                "ResNet50",
+                "VGG16",
+                "MobileNetV2",
+              ],
               datasets: [
                 {
                   label: "Models Accuracy",
