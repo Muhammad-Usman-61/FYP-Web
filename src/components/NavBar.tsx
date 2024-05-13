@@ -14,23 +14,23 @@ const NavBar = ({ currentTask }: Props) => {
   const tasks = [
     {
       name: "Home",
-      icon: <RiHome2Line size={24} fill="#fff" />,
+      icon: <RiHome2Line size={20} fill="#fff" />,
     },
     {
       name: "Models",
-      icon: <BsDatabase size={24} fill="#fff" />,
+      icon: <BsDatabase size={20} fill="#fff" />,
     },
     {
       name: "How It Works",
-      icon: <BsGear size={24} fill="#fff" />,
+      icon: <BsGear size={20} fill="#fff" />,
     },
     {
       name: "Check Disease",
-      icon: <FaRegCircleCheck size={24} fill="#fff" />,
+      icon: <FaRegCircleCheck size={20} fill="#fff" />,
     },
     {
       name: "Contact Us",
-      icon: <IoCallOutline size={24} stroke="#fff" />,
+      icon: <IoCallOutline size={20} stroke="#fff" />,
     },
   ];
   const [task1, setTask] = useState("Home");
@@ -54,8 +54,8 @@ const NavBar = ({ currentTask }: Props) => {
             <div
               className={
                 task1 === "Contact Us"
-                  ? "hidden lg:flex items-center gap-2 shadow-lg shadow-blue-500/50 border-2 px-[0.4rem] py-[.35rem] reborder-2 font-medium rounded-3xl border text-sm text-center cursor-pointer"
-                  : "hidden lg:flex items-center gap-2 border-2 px-[0.4rem] py-[.35rem] reborder-2 font-medium rounded-3xl border text-sm text-center cursor-pointer"
+                  ? "hidden lg:flex items-center gap-2 shadow-lg border-[1.5px] shadow-blue-500/50 px-[0.4rem] py-[.35rem] font-medium rounded-3xl text-sm text-center cursor-pointer"
+                  : "hidden lg:flex items-center gap-2 border-[1.5px] px-[0.4rem] py-[.35rem] font-medium rounded-3xl text-sm text-center cursor-pointer"
               }
               aria-current="page"
               onClick={() => {
@@ -64,7 +64,7 @@ const NavBar = ({ currentTask }: Props) => {
               }}
             >
               <span className="bg-[#1d4ed8] rounded-3xl p-1">
-                <IoCallOutline size={24} stroke="#fff" />
+                <IoCallOutline size={20} stroke="#fff" />
               </span>
               Contact Us
             </div>
@@ -107,7 +107,7 @@ const NavBar = ({ currentTask }: Props) => {
             </button>
           </div>
           <div
-            className={`lg:flex justify-end items-center w-full flex lg:w-auto lg:order-1 max-lg:absolute max-lg:top-[50px] ${
+            className={`lg:flex z-10 justify-end items-center w-full flex lg:w-auto lg:order-1 max-lg:absolute max-lg:top-[50px] ${
               hamberger ? "" : "hidden"
             }`}
           >
@@ -124,8 +124,8 @@ const NavBar = ({ currentTask }: Props) => {
                   <div
                     className={
                       task1 === task.name
-                        ? "flex items-center gap-2 shadow-lg shadow-blue-500/50 border-2 pr-[0.5rem] pl-[0.4rem] py-[.35rem] reborder-2 font-medium rounded-3xl border text-sm text-center cursor-pointer"
-                        : "flex items-center gap-2 border-2 pr-[0.5rem] pl-[0.4rem] py-[.35rem] reborder-2 font-medium rounded-3xl border text-sm text-center cursor-pointer"
+                        ? "flex items-center gap-2 shadow-lg shadow-blue-500/50 border-[1.5px] pr-[0.5rem] pl-[0.4rem] py-[.35rem] font-medium rounded-3xl text-sm text-center cursor-pointer"
+                        : "flex items-center gap-2 border-[1.5px] pr-[0.5rem] pl-[0.4rem] py-[.35rem] font-medium rounded-3xl text-sm text-center cursor-pointer"
                     }
                     aria-current="page"
                     onClick={() => {

@@ -12,7 +12,7 @@ import community from "../assets/community.jpg";
 const Contact = () => {
   return (
     <>
-      <div className="flex gap-8 mx-16 my-8 flex-col max-lg:mx-4">
+      <div className="flex gap-8 mx-16 my-8 flex-col max-lg:mx-4 xl:mx-auto max-w-screen-xl">
         <div className="rounded-2xl shadow h-48 border border-gray-200 overflow-hidden">
           <img
             src={contact_us_img_1}
@@ -92,20 +92,20 @@ const Contact = () => {
             </form>
           </div>
           <div className="flex flex-col justify-between gap-8">
-            <div className="h-1/2 bg-white shadow rounded-2xl p-8">
+            <div className="h-1/2 bg-white shadow rounded-2xl p-8 border border-gray-200">
               <h1 className="text-xl font-semibold text-gray-900 text-center mb-4">
                 Meet the team
               </h1>
 
               <div className="grid gap-8 lg:gap-16 grid-cols-2 md:grid-cols-3">
-                <div className="text-center text-gray-500 dark:text-gray-400">
+                <div className="text-center text-gray-500 bg-gray-50 border-2 border-gray-300 text-sm rounded-lg p-2">
                   <img
                     className="mx-auto w-24 h-24 rounded-full"
                     src={pic1}
                     alt="Muhammad Usman"
                   />
-                  <h3 className="mb-1 text-md font-bold tracking-tight text-gray-900">
-                    <a href="#">Muhammad Usman</a>
+                  <h3 className="my-1 text-md font-medium tracking-tight text-gray-900">
+                    Muhammad Usman
                   </h3>
                   <ul className="flex justify-center mt-2 space-x-4">
                     <li>
@@ -137,14 +137,14 @@ const Contact = () => {
                     </li>
                   </ul>
                 </div>
-                <div className="text-center text-gray-500">
+                <div className="text-center text-gray-500 bg-gray-50 border-2 border-gray-300 text-sm rounded-lg p-2">
                   <img
                     className="mx-auto w-24 h-24 rounded-full"
                     src={pic3}
                     alt="Abid Khan"
                   />
-                  <h3 className="mb-1 text-md font-bold tracking-tight text-gray-900">
-                    <a href="#">Abid Khan</a>
+                  <h3 className="my-1 text-md font-medium tracking-tight text-gray-900">
+                    Abid Khan
                   </h3>
                   <ul className="flex justify-center mt-2 space-x-4">
                     <li>
@@ -176,16 +176,14 @@ const Contact = () => {
                     </li>
                   </ul>
                 </div>
-                <div className="text-center text-gray-500">
+                <div className="text-center text-gray-500 bg-gray-50 border-2 border-gray-300 text-sm rounded-lg p-2">
                   <img
                     className="mx-auto w-24 h-24 rounded-full"
                     src={pic2}
                     alt="Mutee Abdullah"
                   />
-                  <h3 className="mb-1 text-md font-bold tracking-tight text-gray-900">
-                    <a href="https://www.linkedin.com/in/mutee-abdullah-b27b64246/">
-                      Mutee Abdullah
-                    </a>
+                  <h3 className="my-1 text-md font-medium tracking-tight text-gray-900">
+                    Mutee Abdullah
                   </h3>
                   <ul className="flex justify-center mt-2 space-x-4">
                     <li>
@@ -225,7 +223,7 @@ const Contact = () => {
                 <img src={contact_us_img} alt="image" />
               </div>
               <div className="shadow rounded-2xl relative border border-gray-200 overflow-hidden">
-                <div className="absolute top-1/4 left-4 w-48 text-white font-medium text-xl">
+                <div className="absolute top-1/4 left-4 w-[14rem] text-white font-medium text-xl">
                   <p>Helping Hands for Community</p>
                   <p>Detecting Alzheimer's Together</p>
                 </div>
