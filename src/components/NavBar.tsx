@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { RiHome2Line } from "react-icons/ri";
-import { BsDatabase } from "react-icons/bs";
-import { BsGear } from "react-icons/bs";
+// import { BsDatabase } from "react-icons/bs";
+// import { BsGear } from "react-icons/bs";
 import { FaRegCircleCheck } from "react-icons/fa6";
 import { IoCallOutline } from "react-icons/io5";
 import Medwise from "../assets/MEDWISE.png";
