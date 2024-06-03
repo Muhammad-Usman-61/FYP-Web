@@ -16,7 +16,7 @@ class Predictor:
             self.custom_model = load_model("new_custom_fyp.h5")
             self.model_lenet = load_model("lenet_fyp.h5")
             self.resNet_model = load_model("model_ResNet50.h5")
-            self.vgg_model = load_model("model_vgg16.h5")
+            self.inception_model = load_model("model_InceptionV3.h5")
             self.mobileNet_model = load_model("model_MobileNetV2.h5")
         except Exception as e:
             print(e)
@@ -29,10 +29,10 @@ class Predictor:
         result_custom = self.custom_model.predict(test_image)
         result_lenet = self.model_lenet.predict(test_image)
         result_resNet = self.resNet_model.predict(test_image)
-        result_vgg = self.vgg_model.predict(test_image)
+        result_inception = self.inception_model.predict(test_image)
         result_mobileNet = self.mobileNet_model.predict(test_image)
 
-        return result_custom, result_lenet, result_resNet, result_vgg, result_mobileNet
+        return result_custom, result_lenet, result_resNet, result_inception, result_mobileNet
 
 pre = Predictor()
 
@@ -54,33 +54,33 @@ def data():
         # Use io.BytesIO to convert bytes to file-like object
         img = io.BytesIO(img_bytes)
 
-        result_custom, result_lenet, result_resNet, result_vgg, result_mobileNet = pre.model_predict(img)
+        result_custom, result_lenet, result_resNet, result_inception, result_mobileNet = pre.model_predict(img)
         # Get the index of the predicted class
         predicted_class_index_custom = np.argmax(result_custom)
         predicted_class_index_lenet = np.argmax(result_lenet)
         predicted_class_index_resNet = np.argmax(result_resNet)
-        predicted_class_index_vgg = np.argmax(result_vgg)
+        predicted_class_index_inception = np.argmax(result_inception)
         predicted_class_index_mobileNet = np.argmax(result_mobileNet)
         # Get the predicted class name
         predicted_class_custom = class_labels[predicted_class_index_custom]
         predicted_class_lenet = class_labels[predicted_class_index_lenet]
         predicted_class_resNet = class_labels[predicted_class_index_resNet]
-        predicted_class_vgg = class_labels[predicted_class_index_vgg]
+        predicted_class_inception = class_labels[predicted_class_index_inception]
         predicted_class_mobileNet = class_labels[predicted_class_index_mobileNet]
 
         accuracy_custom = np.max(result_custom)
         accuracy_lenet = np.max(result_lenet)
         accuracy_resNet = np.max(result_resNet)
-        accuracy_vgg = np.max(result_vgg)
+        accuracy_inception = np.max(result_inception)
         accuracy_mobileNet = np.max(result_mobileNet)
 
         accuracy_custom = round(float(accuracy_custom * 100), 2)
         accuracy_lenet = round(float(accuracy_lenet * 100), 2)
         accuracy_resNet = round(float(accuracy_resNet * 100), 2)
-        accuracy_vgg = round(float(accuracy_vgg * 100), 2)
+        accuracy_inception = round(float(accuracy_inception * 100), 2)
         accuracy_mobileNet = round(float(accuracy_mobileNet * 100), 2)
         
-        return {'predicted_class_custom': predicted_class_custom, 'accuracy_custom': accuracy_custom, 'predicted_class_lenet': predicted_class_lenet, 'accuracy_lenet': accuracy_lenet, 'predicted_class_resNet': predicted_class_resNet, 'accuracy_resNet': accuracy_resNet, 'predicted_class_vgg': predicted_class_vgg, 'accuracy_vgg': accuracy_vgg, 'predicted_class_mobileNet': predicted_class_mobileNet, 'accuracy_mobileNet': accuracy_mobileNet}
+        return {'predicted_class_custom': predicted_class_custom, 'accuracy_custom': accuracy_custom, 'predicted_class_lenet': predicted_class_lenet, 'accuracy_lenet': accuracy_lenet, 'predicted_class_resNet': predicted_class_resNet, 'accuracy_resNet': accuracy_resNet, 'predicted_class_inception': predicted_class_inception, 'accuracy_inception': accuracy_inception, 'predicted_class_mobileNet': predicted_class_mobileNet, 'accuracy_mobileNet': accuracy_mobileNet}
     
     return "Send POST request to get result"
 

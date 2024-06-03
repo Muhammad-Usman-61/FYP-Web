@@ -13,8 +13,8 @@ interface Result {
   accuracy_lenet: number;
   predicted_class_resNet: string;
   accuracy_resNet: number;
-  predicted_class_vgg: string;
-  accuracy_vgg: number;
+  predicted_class_inception: string;
+  accuracy_inception: number;
   predicted_class_mobileNet: string;
   accuracy_mobileNet: number;
 }
@@ -145,7 +145,7 @@ const Upload = () => {
     result?.predicted_class_custom,
     result?.predicted_class_lenet,
     result?.predicted_class_resNet,
-    result?.predicted_class_vgg,
+    result?.predicted_class_inception,
     result?.predicted_class_mobileNet,
   ].map((predictedClass) => {
     // Compare predicted disease class with predefined diseases
@@ -210,7 +210,7 @@ const Upload = () => {
           {loading && (
             <CircularProgress className="absolute w-32 h-32 m-auto left-0 right-0 top-0 bottom-0" />
           )}
-
+          <p className="text-center font-bold mt-2">Predicted Class</p>
           <Bar
             width="450px"
             height="350px"
@@ -219,7 +219,7 @@ const Upload = () => {
                 "Our Model",
                 "LeNet",
                 "ResNet50",
-                "VGG16",
+                "InceptionV3",
                 "MobileNetV2",
               ],
               datasets: [
@@ -254,6 +254,7 @@ const Upload = () => {
                       size: 14,
                     },
                   },
+                  display: false,
                 },
                 tooltip: {
                   callbacks: {
@@ -296,6 +297,7 @@ const Upload = () => {
           {loading && (
             <CircularProgress className="absolute w-32 h-32 m-auto left-0 right-0 top-0 bottom-0" />
           )}
+          <p className="text-center font-bold mt-2">Models Accuracy</p>
           <Bar
             width="350px"
             height="350px"
@@ -304,7 +306,7 @@ const Upload = () => {
                 "Our Model",
                 "LeNet",
                 "ResNet50",
-                "VGG16",
+                "InceptionV3",
                 "MobileNetV2",
               ],
               datasets: [
@@ -314,7 +316,7 @@ const Upload = () => {
                     result?.accuracy_custom,
                     result?.accuracy_lenet,
                     result?.accuracy_resNet,
-                    result?.accuracy_vgg,
+                    result?.accuracy_inception,
                     result?.accuracy_mobileNet,
                   ],
                   backgroundColor: [
@@ -344,6 +346,7 @@ const Upload = () => {
                       size: 14,
                     },
                   },
+                  display: false,
                 },
               },
             }}

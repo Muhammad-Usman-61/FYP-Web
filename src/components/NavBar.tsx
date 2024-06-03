@@ -16,14 +16,14 @@ const NavBar = ({ currentTask }: Props) => {
       name: "Home",
       icon: <RiHome2Line size={20} fill="#fff" />,
     },
-    {
-      name: "Models",
-      icon: <BsDatabase size={20} fill="#fff" />,
-    },
-    {
-      name: "How It Works",
-      icon: <BsGear size={20} fill="#fff" />,
-    },
+    // {
+    //   name: "Models",
+    //   icon: <BsDatabase size={20} fill="#fff" />,
+    // },
+    // {
+    //   name: "How It Works",
+    //   icon: <BsGear size={20} fill="#fff" />,
+    // },
     {
       name: "Check Disease",
       icon: <FaRegCircleCheck size={20} fill="#fff" />,
