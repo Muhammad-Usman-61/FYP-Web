@@ -180,7 +180,7 @@ const Upload = () => {
                 </div>
                 <img
                   id="image-preview"
-                  className="hidden object-contain text-xs text-gray-600 cursor-pointer w-64 h-40 bg-white rounded-md flex justify-center items-center flex-col my-4 max-w-56 max-h-32 shadow-md"
+                  className="hidden object-contain text-xs text-gray-600 cursor-pointer w-64 h-40 bg-white rounded-md justify-center items-center flex-col my-4 max-w-56 max-h-32 shadow-md"
                 />
               </label>
             </div>
