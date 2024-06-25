@@ -297,7 +297,7 @@ const Upload = () => {
           {loading && (
             <CircularProgress className="absolute w-32 h-32 m-auto left-0 right-0 top-0 bottom-0" />
           )}
-          <p className="text-center font-bold mt-2">Models Accuracy</p>
+          <p className="text-center font-bold mt-2">Confidence Level</p>
           <Bar
             width="350px"
             height="350px"

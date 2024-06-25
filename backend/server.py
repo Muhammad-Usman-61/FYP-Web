@@ -6,6 +6,7 @@ from keras.preprocessing import image
 import numpy as np
 import io
 
+
 # Initializing flask app
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}})
@@ -22,10 +23,24 @@ class Predictor:
             print(e)
 
     def model_predict(self, img_path):
-        test_image = image.load_img(img_path, target_size=(128, 128))
-        test_image = image.img_to_array(test_image)
-        test_image = np.expand_dims(test_image, axis=0)
+        # test_image = image.load_img(img_path, target_size=(128, 128))
+        # test_image = image.img_to_array(test_image)
+        # test_image = np.expand_dims(test_image, axis=0)
         # test_image = test_image / 255.0
+
+        def load_and_preprocess_image(img_path, target_size):
+            # Load the image with the target size
+            img = image.load_img(img_path, target_size=target_size)
+            # Convert the image to a numpy array
+            img_array = image.img_to_array(img)
+            # Expand the dimensions to fit the model input shape
+            img_array = np.expand_dims(img_array, axis=0)
+            return img_array
+
+        target_size = (128, 128)
+        test_image = load_and_preprocess_image(img_path, target_size)
+        print(test_image.shape)  # Should print (1, 128, 128, 3)
+
         result_custom = self.custom_model.predict(test_image)
         result_lenet = self.model_lenet.predict(test_image)
         result_resNet = self.resNet_model.predict(test_image)
